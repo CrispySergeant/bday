@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday!</title>
+  <style>
+    /* Reset default margin and padding */
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Styling for the container */
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('path/to/smiling-girl-image.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Styling for the text */
+    .text {
+      font-size: 48px;
+      text-align: center;
+      animation: pulse 2s infinite;
+      color: white; /* Ensure text is visible against the background image */
+    }
+
+    /* Styling for the button */
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff4081;
+      color: white;
+      font-size: 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Animation keyframes */
+    @keyframes pulse {
+      0% { color: rgb(255, 0, 0); }
+      33% { color: rgb(0, 255, 0); }
+      66% { color: rgb(0, 0, 255); }
+      100% { color: rgb(255, 0, 0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text">Happy Birthday!</h1>
+    <button class="button" onclick="celebrateBirthday()">Press Me</button>
+  </div>
+
+  <script>
+    function celebrateBirthday() {
+      // Create popping effect
+      for (let i = 0; i < 10; i++) {
+        createPoppingEffect();
+      }
+
+      // Play sound
+      playSound('path/to/generic-sound.mp3');
+    }
+
+    function createPoppingEffect() {
+      const popper = document.createElement('div');
+      popper.classList.add('popper');
+      popper.style.left = Math.random() * 100 + 'vw';
+      popper.style.top = Math.random() * 100 + 'vh';
+      document.body.appendChild(popper);
+
+      setTimeout(() => {
+        popper.remove();
+      }, 1000);
+    }
+
+    function playSound(soundPath) {
+      const audio = new Audio(soundPath);
+      audio.play();
+    }
+  </script>
+</body>
+</html>
